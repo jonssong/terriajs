@@ -7,11 +7,12 @@ import PropTypes from 'prop-types';
 import knockout from 'terriajs-cesium/Source/ThirdParty/knockout';
 
 import ObserveModelMixin from '../ObserveModelMixin';
-import SearchBox from '../Search/SearchBox.jsx';
+// import SearchBox from '../Search/SearchBox.jsx';
 import SidebarSearch from '../Search/SidebarSearch.jsx';
 import Workbench from '../Workbench/Workbench.jsx';
 import Icon from "../Icon.jsx";
 import { removeMarker } from '../../Models/LocationMarkerUtils';
+// import FullScreenButton from '../Map/Navigation/FullScreenButton.jsx';
 
 import Styles from './side-panel.scss';
 
@@ -78,10 +79,14 @@ const SidePanel = createReactClass({
         return (
             <div className={Styles.workBench}>
                 <div className={Styles.header}>
+                    {/* GJO WSP start*/}
+                    {/*
                     <SearchBox onSearchTextChanged={this.changeSearchText}
                                onDoSearch={this.search}
                                onFocus={this.startLocationSearch}
                                searchText={searchState.locationSearchText} />
+                    */}
+                    {/* GJO WSP end*/}
                     <div className={Styles.addData}>
                         <button type='button' onClick={this.onAddDataClicked} className={Styles.button}>
                             <Icon glyph={Icon.GLYPHS.add}/>Add data

@@ -6,6 +6,7 @@
 }
 
 .btn {
+  display: inline;
   composes: btn from '../../../Sass/common/_buttons.scss';
   composes: btn--map from '../../../Sass/common/_buttons.scss';
   border-radius: $radius-small;
@@ -30,4 +31,12 @@
 
 .isActive {
   background: $color-primary;
+}
+
+.layersTitleShowing{
+  padding-left: 10px;
+  color: white;
+}
+.layersTitleHidden{
+  display: none;
 }

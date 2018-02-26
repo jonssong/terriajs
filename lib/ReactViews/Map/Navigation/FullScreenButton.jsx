@@ -6,7 +6,7 @@ import ObserveModelMixin from '../../ObserveModelMixin';
 import triggerResize from '../../../Core/triggerResize';
 import Styles from './full_screen_button.scss';
 import classNames from "classnames";
-import Icon from "../../Icon.jsx";
+// import Icon from "../../Icon.jsx";
 
 // The button to make the map full screen and hide the workbench.
 const FullScreenButton = createReactClass({
@@ -38,21 +38,31 @@ const FullScreenButton = createReactClass({
 
     renderButtonText() {
         if (this.props.viewState.isMapFullScreen) {
-            return <span className={Styles.exit}>Show Workbench</span>;
+            // return <span className={Styles.exit}>Layers</span>;
+            return <img src='build/TerriaJS/images/layers.png'/>;
+            
         } else {
-            return <Icon glyph={Icon.GLYPHS.expand}/>;
+            // return <Icon glyph={Icon.GLYPHS.expand}/>;
+            return <img src='build/TerriaJS/images/collapse.png'/>;
+        }
+    },
+
+    renderLayerText() {
+        if (this.props.viewState.isMapFullScreen) {
+            return <span className={Styles.layersTitleHidden}></span>;
+        } else {
+            return <span className={Styles.layersTitleShowing}>Layers</span>;
         }
     },
 
     render() {
-        const btnClassName = classNames(Styles.btn, {
-            [Styles.isActive]: this.props.viewState.isMapFullScreen
-        });
-        const btnTitle = this.props.viewState.isMapFullScreen? "Show workbench": "Hide workbench";
+        const btnClassName = classNames(Styles.btn, {[Styles.isActive]: this.props.viewState.isMapFullScreen});
+        const btnTitle = this.props.viewState.isMapFullScreen? "Show Layer Control": "Hide Layer Control";
         return (
-            <div className={Styles.fullScreen}>
+            <div className={[Styles.fullScreen, "layersDivGJO-class"].join(' ')}>
                 <button type='button' onClick={this.toggleFullScreen} title={btnTitle}
                         className={btnClassName}><span>{this.renderButtonText()}</span></button>
+                {this.renderLayerText()}
             </div>
         );
     },
